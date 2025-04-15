@@ -12,4 +12,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	//consulta que busca todos os employees do banco JUNTO com o seus respectivos departamentos
 	@Query("SELECT obj FROM Employee obj JOIN FETCH obj.department") //Método Join Fetch / Linguagem JPQL (parecida com SQL)
 	List<Employee> findEmployeesWithDepartments();
+
+	List<Employee> findByNameContainingIgnoreCase(String name); //Query Methods
 }
